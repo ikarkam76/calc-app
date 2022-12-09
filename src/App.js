@@ -43,8 +43,7 @@ function App() {
         }
         break;
       case "ARS":
-        setPrint(ars);
-        setArs();
+        ars ? setPrint(ars) : alert("There is nothing in ARS!");
         break;
       case "+":
       case "-":
