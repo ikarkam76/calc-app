@@ -26,10 +26,21 @@ function App() {
       case "7":
       case "8":
       case "9":
-      case "0":
       case ".":
-        if(!symbol) {setArs()}
+        if (!symbol) {
+          setArs();
+        }
         setPrint((prev) => prev + event.target.innerText);
+        break;
+      case "0":
+        if (!symbol) {
+          setArs();
+        }
+        if (symbol === "/") {
+          alert('Don`t do this!!!');
+        } else {
+          setPrint((prev) => prev + event.target.innerText);
+        }
         break;
       case "ARS":
         setPrint(ars);
@@ -49,7 +60,7 @@ function App() {
             ? (res = ars * Number(print))
             : symbol === "/"
             ? (res = ars / Number(print))
-            : (res=ars);
+            : (res = ars);
           setArs(res);
           setSymbol(event.target.innerText);
           setPrint(0);
@@ -69,7 +80,7 @@ function App() {
             : symbol === "*"
             ? (res = (ars / 100) * Number(print))
             : symbol === "/"
-            ? (res = ars *100 / Number(print))
+            ? (res = (ars * 100) / Number(print))
             : setPrint(0);
           setArs(res);
           setSymbol();
